@@ -1,5 +1,5 @@
 .data
-vector:	.word 2,4,6,3,10,12,2,5
+vector:	.word 2,4,6,3,10,1,4
 
 	.text
 main:	ldr r0, =vector
@@ -18,11 +18,11 @@ bucle:	cmp r3, r2	@Comparando los valores de r3 y r2
 	add r4, #4	@Extrae otro dato del vector, apuntando a otra direccion
 	cmp r5, r1	@Compara el valor del vector que se esta analizando
 			@con el valor de referencia r1 = {5}
-	blt contador	@En caso de que la comparacion se cumpla
+	bgt contador	@En caso de que la comparacion [MAYOR QUE] se cumpla
 			@Se aumenta el contador en el registro 6
 	b bucle
 
-contador:	add r6, #1
+contador:	add r6, r5
 		b bucle
 	
 
